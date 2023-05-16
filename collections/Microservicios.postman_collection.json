@@ -47,7 +47,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"hosts\": [\"10.128.0.31\", \"0.0.0.0\", \"34.69.159.153\"],\r\n    //Se ingresan la ip de la instancia del microservicio, 0.0.0.0 para recibir de todos los hosts y la ip de la instancia del mismo kong\r\n    \"paths\": [\"/measurements\"],\r\n    \"strip_path\": false,\r\n    \"methods\": [\r\n        \"GET\"\r\n    ],\r\n    \"service\": {\r\n        \"id\": \"261f278b-a35e-4c61-af55-66f8b3aa7406\"\r\n        // Mismo id retornado en la petición de registro de un servicio\r\n    },\r\n    \"preserve_host\": true\r\n}",
+							"raw": "{\r\n    \"hosts\": [\"10.128.0.31\", \"0.0.0.0\", \"34.69.159.153\"],\r\n     \"paths\": [\"/measurements\"],\r\n    \"strip_path\": false,\r\n    \"methods\": [\r\n        \"GET\"\r\n    ],\r\n    \"service\": {\r\n        \"id\": \"261f278b-a35e-4c61-af55-66f8b3aa7406\"\r\n       },\r\n    \"preserve_host\": true\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
