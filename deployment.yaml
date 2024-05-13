@@ -107,7 +107,10 @@ resources:
           sudo git clone https://github.com/ISIS2503/ISIS2503-Microservices-AppDjango.git
           cd ISIS2503-Microservices-AppDjango
           docker network create kong-net
-          docker run -d --name kong --network=kong-net --restart=always -v "$(pwd):/kong/declarative/" -e "KONG_DATABASE=off" -e "KONG_DECLARATIVE_CONFIG=/kong/declarative/kong.yaml" -p 8000:8000 kong/kong-gateway
+          docker run -d --name kong --network=kong-net --restart=always \
+          -v "$(pwd):/kong/declarative/" -e "KONG_DATABASE=off" \
+          -e "KONG_DECLARATIVE_CONFIG=/kong/declarative/kong.yaml" \
+          -p 8000:8000 kong/kong-gateway
 
 # Database instances
 - name: msd-variables-db
