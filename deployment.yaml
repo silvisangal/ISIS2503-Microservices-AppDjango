@@ -76,8 +76,8 @@ resources:
       - 5432
 
 # Kong instance
-- type: compute.v1.instance
-  name: msd-kong-instance
+- name: msd-kong-instance
+  type: compute.v1.instance
   properties:
     zone: us-central1-a
     machineType: https://www.googleapis.com/compute/v1/projects/<id-proyecto>/zones/us-central1-a/machineTypes/e2-micro
@@ -87,7 +87,7 @@ resources:
       boot: true
       autoDelete: true
       initializeParams:
-        sourceImage: https://www.googleapis.com/compute/v1/projects/cos-cloud/global/images/cos-101-17162-386-65
+        sourceImage: https://www.googleapis.com/compute/v1/projects/cos-cloud/global/images/cos-101-17162-463-8
     networkInterfaces:
     - network: https://www.googleapis.com/compute/v1/projects/<id-proyecto>/global/networks/default
       networkIP: 10.128.0.81
@@ -102,8 +102,8 @@ resources:
       - key: startup-script
         value: |
           #!/bin/bash
-          sudo mkdir /labs
-          cd /labs
+          sudo mkdir /home/labs
+          cd /home/labs
           sudo git clone https://github.com/ISIS2503/ISIS2503-Microservices-AppDjango.git
           cd ISIS2503-Microservices-AppDjango
           docker network create kong-net
@@ -121,7 +121,7 @@ resources:
       boot: true
       autoDelete: true
       initializeParams:
-        sourceImage: https://www.googleapis.com/compute/v1/projects/cos-cloud/global/images/cos-101-17162-386-65
+        sourceImage: https://www.googleapis.com/compute/v1/projects/cos-cloud/global/images/cos-101-17162-463-8
     networkInterfaces:
     - network: https://www.googleapis.com/compute/v1/projects/<id-proyecto>/global/networks/default
       networkIP: 10.128.0.82
@@ -149,7 +149,7 @@ resources:
       boot: true
       autoDelete: true
       initializeParams:
-        sourceImage: https://www.googleapis.com/compute/v1/projects/cos-cloud/global/images/cos-101-17162-386-65
+        sourceImage: https://www.googleapis.com/compute/v1/projects/cos-cloud/global/images/cos-101-17162-463-8
     networkInterfaces:
     - network: https://www.googleapis.com/compute/v1/projects/<id-proyecto>/global/networks/default
       networkIP: 10.128.0.83
@@ -179,7 +179,7 @@ resources:
       boot: true
       autoDelete: true
       initializeParams:
-        sourceImage: https://www.googleapis.com/compute/v1/projects/cos-cloud/global/images/cos-101-17162-386-65
+        sourceImage: https://www.googleapis.com/compute/v1/projects/cos-cloud/global/images/cos-101-17162-463-8
     networkInterfaces:
     - network: https://www.googleapis.com/compute/v1/projects/<id-proyecto>/global/networks/default
       networkIP: 10.128.0.84
@@ -194,8 +194,8 @@ resources:
       - key: startup-script
         value: |
           #!/bin/bash
-          sudo mkdir /labs
-          cd /labs
+          sudo mkdir /home/labs
+          cd /home/labs
           sudo git clone https://github.com/ISIS2503/ISIS2503-Microservices-AppDjango.git
           cd ISIS2503-Microservices-AppDjango/variables
 
@@ -227,8 +227,8 @@ resources:
           #!/bin/bash
           sudo apt-get update
           sudo apt install python3-pip -y
-          sudo mkdir /labs
-          cd /labs
+          sudo mkdir /home/labs
+          cd /home/labs
           sudo git clone https://github.com/ISIS2503/ISIS2503-Microservices-AppDjango.git
           cd ISIS2503-Microservices-AppDjango
           sudo pip3 install -r requirements.txt
