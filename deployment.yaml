@@ -169,7 +169,7 @@ resources:
           #!/bin/bash
           docker run --restart=always -d -e POSTGRES_USER=measurements_user -e POSTGRES_DB=measurements_db -e POSTGRES_PASSWORD=isis2503 -p 5432:5432 --name measurements-db postgres
 
-name: msd-places-db
+- name: msd-places-db
   type: compute.v1.instance
   properties:
     zone: us-central1-a
