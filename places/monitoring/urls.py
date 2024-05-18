@@ -1,8 +1,7 @@
-"""
-URL configuration for places project.
+"""monitoring URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.0/topics/http/urls/
+    https://docs.djangoproject.com/en/2.0/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -15,13 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.conf.urls import url, include
-from django.urls import path
-from django.views.decorators.csrf import csrf_exempt
-
-from . import views
+from django.urls import include, path
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    url(r'^placelist/', views.PlaceList, name='placeList'),
-    url(r'^placecreate/$', csrf_exempt(views.PlaceCreate), name='placeCreate'),
+    path('admin/', admin.site.urls),
+    path('', include('variables.urls')),
 ]
+
+if settings.DEBUG is True:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
